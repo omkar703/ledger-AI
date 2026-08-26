@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HeroSection() {
+export default function HeroSection({ onNavigate }) {
   // Generate a wide, smooth wave profile across 48 bars
   const waveHeights = [
     15, 20, 28, 40, 55, 70, 85, 95, 80, 65, 45, 30, 25, 35, 50, 75, 90, 100, 85, 70,
@@ -39,10 +39,16 @@ export default function HeroSection() {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="font-button text-button bg-text-primary text-surface-base px-6 py-3 rounded-DEFAULT hover:opacity-90 transition-opacity w-full sm:w-auto shadow-sm">
+          <button 
+            onClick={() => onNavigate && onNavigate('signup')}
+            className="font-button text-button bg-text-primary text-surface-base px-6 py-3 rounded-DEFAULT hover:opacity-90 transition-opacity w-full sm:w-auto shadow-sm focus:outline-none"
+          >
             Start Processing Invoices
           </button>
-          <button className="font-button text-button bg-surface-base text-text-primary border border-border-strong px-6 py-3 rounded-DEFAULT hover:bg-surface-soft transition-colors w-full sm:w-auto shadow-2xs">
+          <button 
+            onClick={() => onNavigate && onNavigate('login')}
+            className="font-button text-button bg-surface-base text-text-primary border border-border-strong px-6 py-3 rounded-DEFAULT hover:bg-surface-soft transition-colors w-full sm:w-auto shadow-2xs focus:outline-none"
+          >
             See How It Works
           </button>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function CtaSection() {
+export default function CtaSection({ onNavigate }) {
   return (
     <section className="relative bg-surface-soft border-t border-border-subtle pt-24 pb-32 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-50"></div>
@@ -14,10 +14,16 @@ export default function CtaSection() {
             Join forward-thinking finance teams automating their invoice processing with enterprise-grade accuracy and speed.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="font-button text-button bg-primary text-surface-base px-8 py-4 rounded-DEFAULT hover:opacity-90 transition-opacity">
+            <button 
+              onClick={() => onNavigate && onNavigate('signup')}
+              className="font-button text-button bg-primary text-surface-base px-8 py-4 rounded-DEFAULT hover:opacity-90 transition-opacity focus:outline-none"
+            >
               Start Free Trial
             </button>
-            <button className="font-button text-button bg-surface-base text-text-primary border border-border-strong px-8 py-4 rounded-DEFAULT hover:bg-surface-soft transition-colors">
+            <button 
+              onClick={() => onNavigate && onNavigate('login')}
+              className="font-button text-button bg-surface-base text-text-primary border border-border-strong px-8 py-4 rounded-DEFAULT hover:bg-surface-soft transition-colors focus:outline-none"
+            >
               Contact Sales
             </button>
           </div>

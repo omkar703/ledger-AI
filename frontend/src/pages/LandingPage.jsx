@@ -5,16 +5,16 @@ import VisualPipeline from '../components/VisualPipeline';
 import CtaSection from '../components/CtaSection';
 import Footer from '../components/Footer';
 
-export default function LandingPage() {
+export default function LandingPage({ onNavigate }) {
   return (
     <>
-      <Navbar />
+      <Navbar onNavigate={onNavigate} />
       <main className="pt-32 pb-0">
-        <HeroSection />
+        <HeroSection onNavigate={onNavigate} />
         <VisualPipeline />
-        <CtaSection />
+        <CtaSection onNavigate={onNavigate} />
       </main>
-      <Footer />
+      <Footer onNavigate={onNavigate} />
     </>
   );
 }

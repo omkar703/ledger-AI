@@ -1,13 +1,13 @@
 import React from 'react';
 import Logo from './Logo';
 
-export default function Footer() {
+export default function Footer({ onNavigate }) {
   return (
     <footer className="bg-surface-base w-full border-t border-border-subtle flat no shadows">
       <div className="max-w-container-max mx-auto px-margin-desktop py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
           <div className="lg:col-span-2">
-            <div className="mb-6">
+            <div className="mb-6 cursor-pointer inline-block" onClick={() => onNavigate && onNavigate('landing')}>
               <Logo />
             </div>
             <p className="font-body-md text-text-secondary mb-8 max-w-sm">
@@ -23,19 +23,19 @@ export default function Footer() {
           <div>
             <h3 className="font-title-md text-sm text-text-primary mb-6">Product</h3>
             <ul className="space-y-4">
-              <li><a className="font-body-sm text-text-secondary hover:text-primary transition-colors" href="#">Features</a></li>
-              <li><a className="font-body-sm text-text-secondary hover:text-primary transition-colors" href="#">Integrations</a></li>
-              <li><a className="font-body-sm text-text-secondary hover:text-primary transition-colors" href="#">Pricing</a></li>
-              <li><a className="font-body-sm text-text-secondary hover:text-primary transition-colors" href="#">Changelog</a></li>
+              <li><button onClick={() => onNavigate && onNavigate('signup')} className="font-body-sm text-text-secondary hover:text-primary transition-colors text-left">Features</button></li>
+              <li><button onClick={() => onNavigate && onNavigate('signup')} className="font-body-sm text-text-secondary hover:text-primary transition-colors text-left">Integrations</button></li>
+              <li><button onClick={() => onNavigate && onNavigate('signup')} className="font-body-sm text-text-secondary hover:text-primary transition-colors text-left">Pricing</button></li>
+              <li><button onClick={() => onNavigate && onNavigate('signup')} className="font-body-sm text-text-secondary hover:text-primary transition-colors text-left">Changelog</button></li>
             </ul>
           </div>
           <div>
             <h3 className="font-title-md text-sm text-text-primary mb-6">Solutions</h3>
             <ul className="space-y-4">
-              <li><a className="font-body-sm text-text-secondary hover:text-primary transition-colors" href="#">Accounts Payable</a></li>
-              <li><a className="font-body-sm text-text-secondary hover:text-primary transition-colors" href="#">Expense Management</a></li>
-              <li><a className="font-body-sm text-text-secondary hover:text-primary transition-colors" href="#">Procurement</a></li>
-              <li><a className="font-body-sm text-text-secondary hover:text-primary transition-colors" href="#">Enterprise</a></li>
+              <li><button onClick={() => onNavigate && onNavigate('signup')} className="font-body-sm text-text-secondary hover:text-primary transition-colors text-left">Accounts Payable</button></li>
+              <li><button onClick={() => onNavigate && onNavigate('signup')} className="font-body-sm text-text-secondary hover:text-primary transition-colors text-left">Expense Management</button></li>
+              <li><button onClick={() => onNavigate && onNavigate('signup')} className="font-body-sm text-text-secondary hover:text-primary transition-colors text-left">Procurement</button></li>
+              <li><button onClick={() => onNavigate && onNavigate('signup')} className="font-body-sm text-text-secondary hover:text-primary transition-colors text-left">Enterprise</button></li>
             </ul>
           </div>
           <div>
