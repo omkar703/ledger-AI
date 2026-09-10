@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
+import OnboardingPage from './pages/OnboardingPage';
+import DashboardPage from './pages/DashboardPage';
 
 function getPageFromHash() {
-  const hash = window.location.hash.replace('#/', '').replace('#', '');
-  if (hash === 'login') return 'login';
-  if (hash === 'signup') return 'signup';
+  const hash = (window.location.hash || '').toLowerCase();
+  if (hash.includes('login')) return 'login';
+  if (hash.includes('signup')) return 'signup';
+  if (hash.includes('onboarding')) return 'onboarding';
+  if (hash.includes('dashboard')) return 'dashboard';
   return 'landing';
 }
 
@@ -15,8 +19,8 @@ function App() {
 
   useEffect(() => {
     const handleHashChange = () => {
-      setCurrentPage(getPageFromHash());
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const page = getPageFromHash();
+      setCurrentPage(page);
     };
 
     window.addEventListener('hashchange', handleHashChange);
@@ -30,12 +34,12 @@ function App() {
 
   const handleNavigate = (page) => {
     if (page === 'landing') {
-      window.location.hash = '';
       if (window.history.pushState) {
         window.history.pushState(null, '', window.location.pathname);
       }
+      window.location.hash = '';
     } else {
-      window.location.hash = page;
+      window.location.hash = `/${page}`;
     }
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -46,6 +50,8 @@ function App() {
       {currentPage === 'landing' && <LandingPage onNavigate={handleNavigate} />}
       {currentPage === 'login' && <LoginPage onNavigate={handleNavigate} />}
       {currentPage === 'signup' && <SignUpPage onNavigate={handleNavigate} />}
+      {currentPage === 'onboarding' && <OnboardingPage onNavigate={handleNavigate} />}
+      {currentPage === 'dashboard' && <DashboardPage onNavigate={handleNavigate} />}
     </div>
   );
 }

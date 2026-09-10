@@ -97,6 +97,9 @@ export default function LoginPage({ onNavigate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (onNavigate) {
+      onNavigate('dashboard');
+    }
   };
 
   return (
@@ -214,7 +217,11 @@ export default function LoginPage({ onNavigate }) {
 
           {/* SSO Buttons */}
           <div className="w-full space-y-3 mb-6">
-            <button className="w-full h-11 flex items-center justify-center gap-3 px-4 bg-white border border-border-strong hover:bg-surface-soft transition-all font-sans font-medium text-sm text-text-primary rounded-lg shadow-2xs">
+            <button 
+              type="button"
+              onClick={() => onNavigate && onNavigate('dashboard')}
+              className="w-full h-11 flex items-center justify-center gap-3 px-4 bg-white border border-border-strong hover:bg-surface-soft transition-all font-sans font-medium text-sm text-text-primary rounded-lg shadow-2xs"
+            >
               <svg className="w-5 h-5 shrink-0" width="20" height="20" viewBox="0 0 24 24">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
@@ -224,7 +231,11 @@ export default function LoginPage({ onNavigate }) {
               <span>Continue with Google</span>
             </button>
 
-            <button className="w-full h-11 flex items-center justify-center gap-3 px-4 bg-white border border-border-strong hover:bg-surface-soft transition-all font-sans font-medium text-sm text-text-primary rounded-lg shadow-2xs">
+            <button 
+              type="button"
+              onClick={() => onNavigate && onNavigate('dashboard')}
+              className="w-full h-11 flex items-center justify-center gap-3 px-4 bg-white border border-border-strong hover:bg-surface-soft transition-all font-sans font-medium text-sm text-text-primary rounded-lg shadow-2xs"
+            >
               <svg className="w-5 h-5 shrink-0" width="20" height="20" viewBox="0 0 21 21">
                 <path d="M1 1h9v9H1z" fill="#f25022"></path>
                 <path d="M1 11h9v9H1z" fill="#00a4ef"></path>
